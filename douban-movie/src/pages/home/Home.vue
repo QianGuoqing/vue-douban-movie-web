@@ -2,7 +2,15 @@
   <div class="home">
     <a-row>
       <a-col :span="2"></a-col>
-      <a-col :span="16">正在上映</a-col>
+      <a-col :span="15">
+        <div class="content">
+          <movie-carousel banner-title="正在热映" :hot-movies="hotMovies">
+            <div class="banner-item" slot="more-info">全部正在热映>></div>
+            <div class="banner-item" slot="more-info">即将上映>></div>
+          </movie-carousel>
+        </div>
+      </a-col>
+      <a-col :span="1"></a-col>
       <a-col :span="4">
         <home-rank :weekly-rank="weeklyRankMovies"></home-rank>
       </a-col>
@@ -12,17 +20,20 @@
 </template>
 
 <script>
-  import HomeRank from './components/HomeRank.vue'
+  import MovieCarousel from './components/movie-carousel/MovieCarousel.vue'
+  import HomeRank from './components/home-rank/HomeRank.vue'
   import { getMoviesInTheater } from '../../apis/request'
   import axios from 'axios'
   export default {
     name: 'Home',
     components: {
-      HomeRank
+      HomeRank,
+      MovieCarousel
     },
     data() {
       return {
-        weeklyRankMovies: []
+        weeklyRankMovies: [],
+        hotMovies: []
       }
     },
     created() {
@@ -30,8 +41,9 @@
       getMoviesInTheater().then(res => {
         res = res.data
         console.log(res)
-        this.weeklyRankMovies = res.subjects.splice(0, 10)
-        console.log('weekly', this.weeklyRankMovies)
+        this.hotMovies = res.subjects
+        this.weeklyRankMovies = res.subjects.slice(0).splice(0, 10)
+        console.log('hot',this.hotMovies)
       }).catch(err => {
         this.$message.error('网络错误')
       })
@@ -39,6 +51,8 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="stylus" scoped>
+  .home
+    .content
+      margin-top 30px
 </style>
