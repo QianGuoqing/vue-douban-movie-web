@@ -4,7 +4,7 @@
       <a-col :span="2"></a-col>
       <a-col :span="20">
         <div class="search">
-          <div class="title">豆瓣电影</div>
+          <router-link to="/" tag="div" class="title">豆瓣电影</router-link>
           <div class="search-input">
             <a-input-search placeholder="搜索电影、电视剧、综艺、影人" style="width: 400px"></a-input-search>
           </div>
@@ -32,7 +32,7 @@
     .search
       display flex;
       padding 15px 0
-      border-bottom 1px solid #fff
+      border-bottom 1px solid #ddd
       .title
         font-size 30px
         line-height 45px
