@@ -154,12 +154,13 @@
         padding 5px
         transition all .3s
         cursor pointer
+        position relative
+        padding-bottom 40px
         &:hover
           box-shadow 0 0 5px #ccc
           transform translateY(-5px)
         .image
           width 100%
-          height 150px
         .title
           margin-top 10px
           width 100%
@@ -177,5 +178,8 @@
           margin-top 5px
         .choose-button
           display block
-          margin 5px auto
+          position absolute
+          transform translateX(-50%)
+          left 50%
+          bottom 10px
 </style>
