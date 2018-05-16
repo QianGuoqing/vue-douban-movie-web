@@ -4,7 +4,10 @@
       <a-col :span="2"></a-col>
       <a-col :span="20">
         <a-alert class="info" message="正在上映" type="info"/>
-        <div class="movie-card-wrapper">
+        <div class="loading" v-if="!movies.length">
+          <img src="../../assets/images/loading/loading-bars.svg" alt="">
+        </div>
+        <div class="movie-card-wrapper" v-else>
           <a-card class="movie-card" v-for="movie in movies" :key="movie.id" :loading="!movies.length" style="width: 18%;">
             <img class="image" :src="movie.images.small" alt="">
             <div class="content">
@@ -57,6 +60,9 @@
   .movie-in-theater
     .info
       margin-top 20px
+    .loading
+      text-align center
+      font-size 120px
     .movie-card-wrapper
       display flex
       flex-flow wrap

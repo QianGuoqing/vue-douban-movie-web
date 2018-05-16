@@ -11,8 +11,13 @@
         <span class="next" @click="onNext">></span>
       </div>
     </div>
+    <div class="loading" v-if="!hotMovies.length">
+      <img src="../../../../assets/images/loading/loading-bars.svg" alt="">
+    </div>
+    <!-- <transition-group 
+        enter-active-class="animated fadeIn"  
+        leave-active-class="animated fadOut"> -->
     <div class="carousel" ref="carousel" v-if="firstRender">
-      <!-- <transition name="fade"> -->
       <div class="item" style="width: 18%" v-for="item in hotMovies.slice(0, 5)" :key="item.id">
         <img class="image" :src="item.images.small" alt="">
         <div class="content">
@@ -24,10 +29,12 @@
           <a-button type="primary" class="choose-button" size="small">选座购票</a-button>
         </div>
       </div>
-      <!-- </transition> -->
     </div>
+    <!-- </transition-group>
+    <transition-group 
+        enter-active-class="animated fadeIn"  
+        leave-active-class="animated fadeOut"> -->
     <div class="carousel" ref="carousel" v-else>
-      <!-- <transition name="fade"> -->
       <div class="item" style="width: 18%" v-for="item in carouselItem" :key="item.id">
         <img class="image" :src="item.images.small" alt="">
         <div class="content">
@@ -39,8 +46,8 @@
           <a-button type="primary" size="small" class="choose-button">选座购票</a-button>
         </div>
       </div>
-      <!-- </transition> -->
     </div>
+    <!-- </transition-group> -->
   </div>
 </template>
 
@@ -112,6 +119,9 @@
 
 <style lang="stylus" scoped>
   .movie-carousel
+    .loading
+      text-align center
+      font-size 100px
     .banner
       display flex
       justify-content space-between

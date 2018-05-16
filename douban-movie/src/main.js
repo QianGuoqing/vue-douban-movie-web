@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import VueAntd from 'vue-antd-ui'
 import './assets/css/reset.css'
+import './assets/css/animated.css'
 import 'vue-antd-ui/dist/antd.css'
 
 Vue.config.productionTip = false
