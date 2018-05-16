@@ -15,11 +15,14 @@
       <!-- <transition name="fade"> -->
       <div class="item" style="width: 18%" v-for="item in hotMovies.slice(0, 5)" :key="item.id">
         <img class="image" :src="item.images.small" alt="">
-        <div class="title">{{ item.title }}</div>
-        <div class="rate">
-          {{ item.rating.average }}分
+        <div class="content">
+          <div class="title">{{ item.title }}</div>
+          <div class="rate" v-if="item.rating.average">
+            {{ item.rating.average }}分
+          </div>
+          <div class="rate" v-else>暂无评分</div>
+          <a-button type="primary" class="choose-button" size="small">选座购票</a-button>
         </div>
-        <a-button type="primary" class="choose-button" size="small">选座购票</a-button>
       </div>
       <!-- </transition> -->
     </div>
@@ -27,11 +30,14 @@
       <!-- <transition name="fade"> -->
       <div class="item" style="width: 18%" v-for="item in carouselItem" :key="item.id">
         <img class="image" :src="item.images.small" alt="">
-        <div class="title">{{ item.title }}</div>
-        <div class="rate">
-          {{ item.rating.average }}分
+        <div class="content">
+          <div class="title">{{ item.title }}</div>
+          <div class="rate" v-if="item.rating.average">
+            {{ item.rating.average }}分
+          </div>
+          <div class="rate" v-else>暂无评分</div>
+          <a-button type="primary" size="small" class="choose-button">选座购票</a-button>
         </div>
-        <a-button type="primary" size="small" class="choose-button">选座购票</a-button>
       </div>
       <!-- </transition> -->
     </div>
@@ -155,31 +161,32 @@
         transition all .3s
         cursor pointer
         position relative
-        padding-bottom 40px
+        display flex
+        flex-direction column
+        justify-content space-between
+        // padding-bottom 100px
         &:hover
           box-shadow 0 0 5px #ccc
           transform translateY(-5px)
         .image
           width 100%
-        .title
-          margin-top 10px
-          width 100%
-          text-align center
-          font-size 12px
-          overflow hidden
-          white-space nowrap
-          text-overflow ellipsis
-          text-align center
-        .rate
-          font-size 12px
-          text-align center
-          font-weight 700
-          color #f30
-          margin-top 5px
-        .choose-button
-          display block
-          position absolute
-          transform translateX(-50%)
-          left 50%
-          bottom 10px
+        .content
+          .title
+            margin-top 10px
+            width 100%
+            text-align center
+            font-size 12px
+            overflow hidden
+            white-space nowrap
+            text-overflow ellipsis
+            text-align center
+          .rate
+            font-size 12px
+            text-align center
+            font-weight 700
+            color #f30
+            margin-top 5px
+          .choose-button
+            display block
+            margin 5px auto
 </style>

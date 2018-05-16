@@ -14,10 +14,10 @@ export function getMoviesInTheater() {
   })
 }
 
-// 口碑排行榜
-export function getWeeklyRank() {
+// 获取即将上映的电影
+export function getComingMovie() {
   return new Promise((resolve, reject) => {
-    axios.get('/api/movie/weekly').then(res => {
+    axios.get('/api/movie/coming_soon').then(res => {
       resolve(res)
     }).catch(err => {
       reject(err)

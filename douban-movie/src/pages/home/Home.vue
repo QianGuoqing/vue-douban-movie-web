@@ -9,6 +9,9 @@
             <div class="banner-item" slot="more-info">即将上映>></div>
           </movie-carousel>
         </div>
+        <div class="content">
+          <movie-carousel banner-title="即将上映" :hot-movies="commingMovies"></movie-carousel>
+        </div>
       </a-col>
       <a-col :span="1"></a-col>
       <a-col :span="4">
@@ -22,7 +25,7 @@
 <script>
   import MovieCarousel from './components/movie-carousel/MovieCarousel.vue'
   import HomeRank from './components/home-rank/HomeRank.vue'
-  import { getMoviesInTheater } from '../../apis/request'
+  import { getMoviesInTheater, getComingMovie } from '../../apis/request'
   import axios from 'axios'
   export default {
     name: 'Home',
@@ -33,17 +36,25 @@
     data() {
       return {
         weeklyRankMovies: [],
-        hotMovies: []
+        hotMovies: [],
+        commingMovies: []
       }
     },
     created() {
       // 获取正在热映电影数据
       getMoviesInTheater().then(res => {
         res = res.data
-        console.log(res)
         this.hotMovies = res.subjects
         this.weeklyRankMovies = res.subjects.slice(0).splice(0, 10)
-        console.log('hot',this.hotMovies)
+      }).catch(err => {
+        this.$message.error('网络错误')
+      })
+
+      // 获取即将上映的电影
+      getComingMovie().then(res => {
+        res = res.data
+        this.commingMovies = res.subjects
+        console.log('comming', res)
       }).catch(err => {
         this.$message.error('网络错误')
       })
