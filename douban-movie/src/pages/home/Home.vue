@@ -5,7 +5,7 @@
       <a-col :span="15">
         <div class="content">
           <movie-carousel banner-title="正在热映" :hot-movies="hotMovies">
-            <div class="banner-item" slot="more-info">全部正在热映>></div>
+            <router-link to="/theater" tag="div" class="banner-item" slot="more-info">全部正在热映>></router-link>
             <div class="banner-item" slot="more-info">即将上映>></div>
           </movie-carousel>
         </div>
