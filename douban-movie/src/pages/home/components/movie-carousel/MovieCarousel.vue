@@ -19,7 +19,7 @@
         leave-active-class="animated fadOut"> -->
     <div class="carousel" ref="carousel" v-if="firstRender">
       <div class="item" style="width: 18%" v-for="item in hotMovies.slice(0, 5)" :key="item.id">
-        <img class="image" :src="item.images.small" alt="">
+        <img class="image" v-lazy="item.images.small" alt="">
         <div class="content">
           <div class="title">{{ item.title }}</div>
           <div class="rate" v-if="item.rating.average">
@@ -36,7 +36,7 @@
         leave-active-class="animated fadeOut"> -->
     <div class="carousel" ref="carousel" v-else>
       <div class="item" style="width: 18%" v-for="item in carouselItem" :key="item.id">
-        <img class="image" :src="item.images.small" alt="">
+        <img class="image" v-lazy="item.images.small" alt="">
         <div class="content">
           <div class="title">{{ item.title }}</div>
           <div class="rate" v-if="item.rating.average">

@@ -8,8 +8,8 @@
           <img src="../../assets/images/loading/loading-bars.svg" alt="">
         </div>
         <div class="movie-card-wrapper" v-else>
-          <a-card class="movie-card" v-for="movie in movies" :key="movie.id" :loading="!movies.length" style="width: 18%;">
-            <img class="image" :src="movie.images.small" alt="">
+          <a-card class="movie-card" v-for="movie in movies" :key="movie.id" style="width: 18%;">
+            <img class="image" v-lazy="movie.images.small" alt="">
             <div class="content">
               <div class="title">{{ movie.title }}</div>
               <div class="rate" v-if="movie.rating.average">
@@ -21,13 +21,16 @@
           </a-card>
         </div>
       </a-col>
-      <a-col :span="2"></a-col>
+      <a-col :span="2">
+        <go-top></go-top>
+      </a-col>
     </a-row>
   </div>
 </template>
 
 <script>
   import MovieCard from '../../components/movie-card/MovieCard.vue'
+  import GoTop from '../../components/go-top/GoTop.vue'
   import { getMoviesByUrl } from '../../apis/request'
   export default {
     name: 'MovieInTheater',
@@ -38,6 +41,10 @@
       return {
         movies: []
       }
+    },
+    components: {
+      GoTop,
+      MovieCard
     },
     created() {
       getMoviesByUrl('/api/movie/in_theaters?count=31').then(res => {
