@@ -8,6 +8,7 @@ import VueLazyload from 'vue-lazyload'
 import './assets/css/reset.css'
 import './assets/css/animated.css'
 import 'vue-antd-ui/dist/antd.css'
+// import './common/js/rem'
 
 Vue.config.productionTip = false
 
