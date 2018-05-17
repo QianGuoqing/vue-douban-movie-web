@@ -25,7 +25,8 @@
 <script>
   import MovieCarousel from './components/movie-carousel/MovieCarousel.vue'
   import HomeRank from './components/home-rank/HomeRank.vue'
-  import { getMoviesInTheater, getComingMovie } from '../../apis/request'
+  import { getMoviesInTheater, getComingMovie, getMoviesByUrl } from '../../apis/request'
+  import { API_WEEKLY } from '../../apis/urls'
   import axios from 'axios'
   export default {
     name: 'Home',
@@ -45,9 +46,8 @@
       getMoviesInTheater().then(res => {
         res = res.data
         this.hotMovies = res.subjects
-        this.weeklyRankMovies = res.subjects.slice(0).splice(0, 10)
       }).catch(err => {
-        this.$message.error('网络错误')
+        this.$message.error('获取正在热映电影发生错误')
       })
 
       // 获取即将上映的电影
@@ -55,7 +55,15 @@
         res = res.data
         this.commingMovies = res.subjects
       }).catch(err => {
-        this.$message.error('网络错误')
+        this.$message.error('获取即将上映电影发送错误')
+      })
+
+      // 获取口碑榜
+      getMoviesByUrl(API_WEEKLY).then(res => {
+        res = res.data
+        this.weeklyRankMovies = res.subjects
+      }).catch(err => {
+        this.$message.error('获取口碑榜数据发生错误')
       })
     }
   }
