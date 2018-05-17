@@ -81,6 +81,26 @@
 </script>
 
 <style lang="stylus" scoped>
+  @media (min-width: 825px){
+    .image {
+      height 160px
+    }
+  }
+  @media (min-width 900px) {
+    .image {
+      height 200px
+    }
+  }
+  @media (min-width: 992px){
+    .image {
+      height 270px
+    }
+  }
+  @media (max-width 824px) {
+    .image {
+      height 120px
+    }
+  }
   .movie-in-theater >>> .ant-card-body
     padding 10px
     display flex
