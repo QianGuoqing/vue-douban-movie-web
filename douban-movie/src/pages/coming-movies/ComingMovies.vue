@@ -1,9 +1,9 @@
 <template>
-  <div class="movie-in-theater">
+  <div class="comming-movies">
     <a-row>
       <a-col :span="2"></a-col>
       <a-col :span="20">
-        <a-alert class="info" message="正在上映" type="info"/>
+        <a-alert class="info" message="即将上映" type="info"/>
         <div class="loading" v-if="!movies.length">
           <img src="../../assets/images/loading/loading-bars.svg" alt="">
         </div>
@@ -27,36 +27,35 @@
 </template>
 
 <script>
-  import MovieCard from '../../components/movie-card/MovieCard.vue'
   import { getMoviesByUrl } from '../../apis/request'
   export default {
-    name: 'MovieInTheater',
-    components: {
-      MovieCard
-    },
+    name: 'ComingMovies',
     data() {
       return {
         movies: []
       }
     },
     created() {
-      getMoviesByUrl('/api/movie/in_theaters?count=31').then(res => {
+      getMoviesByUrl('/api/movie/coming_soon?count=100').then(res => {
         res = res.data
         this.movies = res.subjects
+        console.log('coming movies', this.movies)
+      }).catch(err => {
+        this.$message.error('网络错误')
       })
     }
   }
 </script>
 
 <style lang="stylus" scoped>
-  .movie-in-theater >>> .ant-card-body
+  .comming-movies >>> .ant-card-body
     padding 10px
     // display flex
     // flex-direction column
     // align-items stretch
     // justify-content flex-end
   
-  .movie-in-theater
+  .comming-movies
     .info
       margin-top 20px
     .loading

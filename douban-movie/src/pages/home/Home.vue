@@ -6,7 +6,7 @@
         <div class="content">
           <movie-carousel banner-title="正在热映" :hot-movies="hotMovies">
             <router-link to="/theater" tag="div" class="banner-item" slot="more-info">全部正在热映>></router-link>
-            <div class="banner-item" slot="more-info">即将上映>></div>
+            <router-link tag="div" to="/coming" class="banner-item" slot="more-info">即将上映>></router-link>
           </movie-carousel>
         </div>
         <div class="content">
@@ -54,7 +54,6 @@
       getComingMovie().then(res => {
         res = res.data
         this.commingMovies = res.subjects
-        console.log('comming', res)
       }).catch(err => {
         this.$message.error('网络错误')
       })
