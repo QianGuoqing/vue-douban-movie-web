@@ -43,7 +43,6 @@
     font-size 12px
   
   .new-rank
-    margin-top 20px
     .rank-list
       .rank-item
         padding 15px 10px
