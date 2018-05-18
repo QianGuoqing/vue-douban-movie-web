@@ -8,7 +8,7 @@ export const API_WEEKLY = `/api/movie/weekly?apikey=0b2bdeda43b5688921839c8ecb20
 export const API_NEW_MOVIES = `/api/movie/new_movies?apikey=0b2bdeda43b5688921839c8ecb20399b`
 // 北美票房榜
 export const API_US_BOX = `/api/movie/us_box?apikey=0b2bdeda43b5688921839c8ecb20399b`
-// 北美票房榜
+// Top250
 export const API_TOP_250 = `/api/movie/top250?apikey=0b2bdeda43b5688921839c8ecb20399b`
 // 电影条目
 export const API_MOVIE_SUBJECT = `/api/movie/subject/:id?apikey=0b2bdeda43b5688921839c8ecb20399b`

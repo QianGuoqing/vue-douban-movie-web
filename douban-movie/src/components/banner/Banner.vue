@@ -11,7 +11,7 @@
         </div>
         <ul class="navigation">
           <router-link to="/movies-info" tag="li" class="navigation-item">影讯&购票</router-link>
-          <li class="navigation-item">排行榜</li>
+          <router-link to="/rank" tag="li" class="navigation-item">排行榜</router-link>
           <li class="navigation-item">分类</li>
         </ul>
       </a-col>

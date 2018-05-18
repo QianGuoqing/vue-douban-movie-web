@@ -4,6 +4,7 @@ import Home from '../pages/home/Home.vue'
 import MovieInTheater from '../pages/in-theater/MovieInTheater.vue'
 import ComingMovies from '../pages/coming-movies/ComingMovies.vue'
 import MoviesInfo from '../pages/movies-info/MoviesInfo.vue'
+import RankPage from '../pages/rank-page/RankPage.vue'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/movies-info',
       name: 'MoviesInfo',
       component: MoviesInfo
+    },
+    {
+      path: '/rank',
+      name: 'RankPage',
+      component: RankPage
     }
   ]
 })

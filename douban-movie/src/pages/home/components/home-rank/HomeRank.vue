@@ -2,7 +2,7 @@
   <div class="home-rank">
     <div class="title-wrapper">
       <div class="title">本周口碑榜</div>
-      <div class="more-rank">更多榜单>></div>
+      <router-link to="/rank" tag="div" class="more-rank">更多榜单>></router-link>
     </div>
     <div class="loading" v-if="!weeklyRank.length">
       <img src="../../../../assets/images/loading/loading-bars.svg" alt="">
