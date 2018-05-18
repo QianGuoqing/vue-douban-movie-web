@@ -3,6 +3,8 @@
     <a-row>
       <a-col :span="2"></a-col>
       <a-col :span="13">
+        <loading v-if="!newMovies.length"></loading>
+        <new-rank v-else :movies="newMovies"></new-rank>
       </a-col>
       <a-col :span="1"></a-col>
       <a-col :span="6">
@@ -18,20 +20,23 @@
 
 <script>
   import MovieRank from './components/MovieRank.vue'
+  import NewRank from './components/NewRank.vue'
   import Loading from '../../components/loading/Loading.vue'
   import { getMoviesByUrl } from '../../apis/request'
-  import { API_WEEKLY, API_US_BOX } from '../../apis/urls'
+  import { API_WEEKLY, API_US_BOX, API_NEW_MOVIES } from '../../apis/urls'
 
   export default {
     name: 'RankPage',
     components: {
       MovieRank,
+      NewRank,
       Loading
     },
     data() {
       return {
         weeklyMovies: [],
-        usMovies: []
+        usMovies: [],
+        newMovies: []
       }
     },
     created() {
@@ -45,7 +50,14 @@
         res = res.data
         this.usMovies = res.subjects
       }).catch(err => {
-        console.log('us rank', err)
+        this.$message.error('获取北美票房数据发生错误')
+      })
+      getMoviesByUrl(API_NEW_MOVIES).then(res => {
+        res = res.data
+        this.newMovies = res.subjects
+        console.log('新片榜', this.newMovies)
+      }).catch(err => {
+        console.log('新片榜', err)
       })
     }
   }

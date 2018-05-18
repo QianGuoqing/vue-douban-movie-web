@@ -46,6 +46,7 @@
   import GoTop from '../../components/go-top/GoTop.vue'
   import { getMoviesByUrl } from '../../apis/request'
   import Util from '../../common/js/util'
+
   export default {
     name: 'MovieInTheater',
     components: {
