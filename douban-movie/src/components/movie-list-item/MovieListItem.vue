@@ -20,6 +20,7 @@
 <style lang="stylus" scoped>
   .movie-list-item
     display flex
+    align-items flex-start
     .image-wrapper
       width 100%
       flex 0 0 15%

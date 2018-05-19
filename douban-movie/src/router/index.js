@@ -5,6 +5,7 @@ import MovieInTheater from '../pages/in-theater/MovieInTheater.vue'
 import ComingMovies from '../pages/coming-movies/ComingMovies.vue'
 import MoviesInfo from '../pages/movies-info/MoviesInfo.vue'
 import RankPage from '../pages/rank-page/RankPage.vue'
+import CategroyPage from '../pages/category-page/CategoryPage.vue'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/rank',
       name: 'RankPage',
       component: RankPage
+    },
+    {
+      path: '/category',
+      name: 'CategoryPage',
+      component: CategroyPage
     }
   ]
 })
