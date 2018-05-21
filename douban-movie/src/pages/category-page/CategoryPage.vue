@@ -23,7 +23,9 @@
         </ul>
         <div class="load-more" @click="loadMore">加载更多</div>
       </a-col>
-      <a-col :span="6"></a-col>
+      <a-col :span="6">
+        <go-top></go-top>
+      </a-col>
     </a-row>
   </div>
 </template>
@@ -31,6 +33,7 @@
 <script>
   import MovieListItem from '../../components/movie-list-item/MovieListItem.vue'
   import Loading from '../../components/loading/Loading.vue'
+  import GoTop from '../../components/go-top/GoTop.vue'
   import { getMoviesByUrl } from '../../apis/request'
   import { API_TAG } from '../../apis/urls'
   import Util from '../../common/js/util'
@@ -39,7 +42,8 @@
     name: 'CategoryPage',
     components: {
       MovieListItem,
-      Loading
+      Loading,
+      GoTop
     },
     data() {
       return {
