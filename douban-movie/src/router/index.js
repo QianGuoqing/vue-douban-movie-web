@@ -6,6 +6,7 @@ import ComingMovies from '../pages/coming-movies/ComingMovies.vue'
 import MoviesInfo from '../pages/movies-info/MoviesInfo.vue'
 import RankPage from '../pages/rank-page/RankPage.vue'
 import CategroyPage from '../pages/category-page/CategoryPage.vue'
+import MovieDetail from '../pages/movie-detail/MovieDetail.vue'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/category',
       name: 'CategoryPage',
       component: CategroyPage
+    },
+    {
+      path: '/subject/:id',
+      name: 'MovieDetail',
+      component: MovieDetail
     }
   ]
 })

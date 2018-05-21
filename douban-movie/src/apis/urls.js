@@ -11,7 +11,8 @@ export const API_US_BOX = `/api/movie/us_box?apikey=0b2bdeda43b5688921839c8ecb20
 // Top250
 export const API_TOP_250 = `/api/movie/top250?apikey=0b2bdeda43b5688921839c8ecb20399b`
 // 电影条目
-export const API_MOVIE_SUBJECT = `/api/movie/subject/:id?apikey=0b2bdeda43b5688921839c8ecb20399b`
+// export const API_MOVIE_SUBJECT = `/api/movie/subject/:id?apikey=0b2bdeda43b5688921839c8ecb20399b`
+export const API_MOVIE_SUBJECT = `/api/movie/subject/`
 // 长评
 export const API_MOVIE_REVIEWS = `/api/movie/subject/:id/reviews?apikey=0b2bdeda43b5688921839c8ecb20399b`
 // 短评

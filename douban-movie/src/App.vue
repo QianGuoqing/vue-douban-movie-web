@@ -2,9 +2,7 @@
   <div id="app">
     <web-header></web-header>
     <web-banner></web-banner>
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
+    <router-view></router-view>
     <web-footer></web-footer>
   </div>
 </template>

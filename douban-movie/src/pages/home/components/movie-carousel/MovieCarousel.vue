@@ -18,7 +18,7 @@
         enter-active-class="animated fadeIn"  
         leave-active-class="animated fadOut"> -->
     <div class="carousel" ref="carousel" v-if="firstRender">
-      <div class="item" style="width: 18%" v-for="item in hotMovies.slice(0, 5)" :key="item.id">
+      <router-link tag="div" :to="{ name: 'MovieDetail', params: {id: item.id} }" class="item" style="width: 18%" v-for="item in hotMovies.slice(0, 5)" :key="item.id">
         <img class="image" v-lazy="item.images.small" alt="">
         <div class="content">
           <div class="title">{{ item.title }}</div>
@@ -28,14 +28,14 @@
           <div class="rate" v-else>暂无评分</div>
           <a-button type="primary" class="choose-button" size="small">选座购票</a-button>
         </div>
-      </div>
+      </router-link>
     </div>
     <!-- </transition-group>
     <transition-group 
         enter-active-class="animated fadeIn"  
         leave-active-class="animated fadeOut"> -->
     <div class="carousel" ref="carousel" v-else>
-      <div class="item" style="width: 18%" v-for="item in carouselItem" :key="item.id">
+      <router-link tag="div" :to="{ name: 'MovieDetail', params: {id: item.id} }" class="item" style="width: 18%" v-for="item in carouselItem" :key="item.id">
         <img class="image" v-lazy="item.images.small" alt="">
         <div class="content">
           <div class="title">{{ item.title }}</div>
@@ -45,7 +45,7 @@
           <div class="rate" v-else>暂无评分</div>
           <a-button type="primary" size="small" class="choose-button">选座购票</a-button>
         </div>
-      </div>
+      </router-link>
     </div>
     <!-- </transition-group> -->
   </div>
