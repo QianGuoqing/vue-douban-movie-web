@@ -13,6 +13,7 @@
           <router-link to="/movies-info" tag="li" class="navigation-item">影讯&购票</router-link>
           <router-link to="/rank" tag="li" class="navigation-item">排行榜</router-link>
           <router-link to="/category" tag="li" class="navigation-item">分类</router-link>
+          <router-link to="/top250" tag="li" class="navigation-item">Top250</router-link>
         </ul>
       </a-col>
       <a-col :span="2"></a-col>

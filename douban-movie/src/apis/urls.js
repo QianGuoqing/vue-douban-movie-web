@@ -10,6 +10,7 @@ export const API_NEW_MOVIES = `/api/movie/new_movies?apikey=0b2bdeda43b568892183
 export const API_US_BOX = `/api/movie/us_box?apikey=0b2bdeda43b5688921839c8ecb20399b`
 // Top250
 export const API_TOP_250 = `/api/movie/top250?apikey=0b2bdeda43b5688921839c8ecb20399b`
+export const API_TOP_250_BY_COUNT = `/api/movie/top250`
 // 电影条目
 // export const API_MOVIE_SUBJECT = `/api/movie/subject/:id?apikey=0b2bdeda43b5688921839c8ecb20399b`
 export const API_MOVIE_SUBJECT = `/api/movie/subject/`
