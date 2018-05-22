@@ -80,9 +80,8 @@
         getMoviesByUrl(url).then(res => {
           res = res.data
           this.movies = res.subjects
-          console.log('top250 by url', this.movies)
         }).catch(err => {
-          console.log('top250 by url', err)
+          this.$message.error('获取Top250数据出错')
         })
       }
     },

@@ -19,6 +19,7 @@
 
 <style lang="stylus" scoped>
   .title
+    margin-top 30px
     font-size 30px
     color #494949
     .year
