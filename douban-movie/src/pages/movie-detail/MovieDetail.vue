@@ -14,9 +14,14 @@
               <movie-rate :movie="movie"></movie-rate>
             </a-col>
           </a-row>
+          <movie-brief :movie="movie"></movie-brief>
+          <movie-avatar-list :movie="movie"></movie-avatar-list>
+          <movie-gallery :movie="movie"></movie-gallery>
         </div>
       </a-col>
-      <a-col :span="8"></a-col>
+      <a-col :span="8">
+        <go-top></go-top>
+      </a-col>
     </a-row>
   </div>
 </template>
@@ -25,9 +30,14 @@
   import MovieTitle from './components/movie-title/MovieTitle.vue'
   import MovieRate from './components/movie-rate/MovieRate.vue'
   import MovieIntroduction from './components/movie-introduction/MovieIntroduction.vue'
+  import MovieBrief from './components/movie-brief/MovieBrief.vue'
+  import MovieAvatarList from './components/movie-avatar-list/MovieAvatarList.vue'
+  import MovieGallery from './components/movie-gallery/MovieGallery.vue'
   import Loading from '../../components/loading/Loading.vue'
+  import GoTop from '../../components/go-top/GoTop.vue'
   import { getMoviesByUrl } from '../../apis/request.js'
   import { API_MOVIE_SUBJECT } from '../../apis/urls.js'
+
   export default {
     name: 'MovieDetail',
     data() {
@@ -39,7 +49,11 @@
       MovieTitle,
       MovieRate,
       MovieIntroduction,
-      Loading
+      MovieBrief,
+      MovieAvatarList,
+      MovieGallery,
+      Loading,
+      GoTop
     },
     created() {
       let id = this.subjectId
