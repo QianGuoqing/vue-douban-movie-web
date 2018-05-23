@@ -18,6 +18,7 @@
           <movie-avatar-list :movie="movie"></movie-avatar-list>
           <movie-gallery :movie="movie"></movie-gallery>
           <movie-short-comment :movie="movie"></movie-short-comment>
+          <movie-reviews-list :movie="movie" :reviews="reviews.slice(0, 10)"></movie-reviews-list>
         </div>
       </a-col>
       <a-col :span="8">
@@ -35,16 +36,18 @@
   import MovieAvatarList from './components/movie-avatar-list/MovieAvatarList.vue'
   import MovieGallery from './components/movie-gallery/MovieGallery.vue'
   import MovieShortComment from './components/movie-short-comment/MovieShortComment.vue'
+  import MovieReviewsList from './components/movie-reviews-list/MovieReviewsList.vue'
   import Loading from '../../components/loading/Loading.vue'
   import GoTop from '../../components/go-top/GoTop.vue'
   import { getMoviesByUrl } from '../../apis/request.js'
-  import { API_MOVIE_SUBJECT } from '../../apis/urls.js'
+  import { API_MOVIE_SUBJECT, API_MOVIE_REVIEWS } from '../../apis/urls.js'
 
   export default {
     name: 'MovieDetail',
     data() {
       return {
-        movie: {}
+        movie: {},
+        reviews: []
       }
     },
     components: {
@@ -55,6 +58,7 @@
       MovieAvatarList,
       MovieGallery,
       MovieShortComment,
+      MovieReviewsList,
       Loading,
       GoTop
     },
@@ -64,9 +68,17 @@
       getMoviesByUrl(API_URL).then(res => {
         res = res.data
         this.movie = res
-        console.log('subject', this.movie)
       }).catch(err => {
-        console.log('subject', err)
+        this.$message.error('获取电影详情信息出错')
+      })
+
+      let REVIEWS_URL = `${API_MOVIE_REVIEWS}${id}/reviews?apikey=0b2bdeda43b5688921839c8ecb20399b`
+      getMoviesByUrl(REVIEWS_URL).then(res => {
+        res = res.data
+        this.reviews = res.reviews
+        console.log('reviews', this.reviews)
+      }).catch(err => {
+        console.log('reviews', err)
       })
     },
     computed: {

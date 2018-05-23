@@ -1,6 +1,6 @@
 <template>
   <div class="comment-item">
-    <img class="avatar" :src="comment.author.avatar" alt="">
+    <img class="avatar" v-lazy="comment.author.avatar" alt="">
     <div class="content">
       <div class="name-star-date-useful">
         <div class="name-star-date">

@@ -1,7 +1,7 @@
 <template>
   <div class="movie-gallery">
     <h1 class="title">
-      {{ movie.title }}
+      {{ movie.title }}的视频和图片
       <span class="info">(
         <span class="info-item">预告片: 99</span> | 
         <span class="info-item">图片: {{ movie.photos_count }}</span> | 

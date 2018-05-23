@@ -1,7 +1,7 @@
 <template>
   <div class="movie-short-comment">
     <h1 class="title">
-      {{ movie.title }}
+      {{ movie.title }}的短评
       <span class="info">(
         <span class="info-item">全部{{ movie.comments_count }}条</span>)
       </span>
