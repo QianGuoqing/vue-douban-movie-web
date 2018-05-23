@@ -19,7 +19,7 @@
               </div>
             </template>
             <div>
-              <a-card class="movie-card">
+              <router-link tag="div" :to="{ name: 'MovieDetail', params: {id: movie.id} }" class="movie-card">
                 <img class="image" v-lazy="movie.images.small" alt="">
                 <div class="content">
                   <div class="title">{{ movie.title }}</div>
@@ -29,7 +29,7 @@
                   <div class="rate" v-else>暂无评分</div>
                   <a-button type="primary" size="small" class="choose-button">选座购票</a-button>
                 </div>
-              </a-card>
+              </router-link>
             </div>
           </a-popover>
         </div>
@@ -122,13 +122,12 @@
       margin-top 20px
       align-items flex-end
       .movie-card
-        // align-self stretch
         margin-bottom 20px
         transition all .3s
         cursor pointer
-        // display inline 
-        // flex-direction column 
-        // justify-content space-between
+        border 1px solid rgb(237, 237, 237)
+        padding 4px
+        border-radius 4px
         &:hover
           box-shadow 0 0 5px #ccc
           transform translateY(-5px)

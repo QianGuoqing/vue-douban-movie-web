@@ -108,7 +108,7 @@
         color rgb(170, 170, 170)
     .operation
       font-size 12px
-      margin-top 10px
+      margin-top 20px
       .operation-item
         background-color rgb(240, 247, 249)
         color rgb(53, 118, 168)

@@ -8,9 +8,9 @@
       <img src="../../../../assets/images/loading/loading-bars.svg" alt="">
     </div>
     <ul class="rank-list" v-else>
-      <li v-for="(movie, index) in weeklyRank" :key="movie.id" class="rank-item">
+      <router-link tag="li" :to="{ name: 'MovieDetail', params: {id: movie.subject.id} }" v-for="(movie, index) in weeklyRank" :key="movie.subject.id" class="rank-item">
         {{ index + 1 }}&nbsp;&nbsp;<span class="title">{{ movie.subject.title }}</span>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>

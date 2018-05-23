@@ -1,7 +1,7 @@
 <template>
   <div class="new-rank">
     <ul class="rank-list">
-      <li class="rank-item" v-for="movie in movies" :key="movie.id">
+      <router-link tag="li" :to="{ name: 'MovieDetail', params: {id: movie.id} }" class="rank-item" v-for="movie in movies" :key="movie.id">
         <movie-list-item>
           <img v-lazy="movie.images.small" alt="" class="image" slot="thumbnail">
           <div class="title" slot="title">{{ movie.title }} / {{ movie.original_title }}</div>
@@ -11,7 +11,7 @@
             <span class="average">{{ movie.rating.average }}</span> ({{ movie.collect_count }}人评价)
           </div>
         </movie-list-item>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -51,6 +51,10 @@
           font-size 14px
           color #3576aa
           margin-bottom 5px
+          cursor pointer
+          transition all .3s
+          &:hover
+            color #108ee9
         .info
           color #666
           margin-bottom 5px

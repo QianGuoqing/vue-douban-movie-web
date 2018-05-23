@@ -5,7 +5,7 @@
       <a-col :span="16">
         <loading v-if="!movies.length"></loading>
         <ul class="rank-list" v-else>
-          <li class="rank-item" v-for="movie in movies" :key="movie.id">
+          <router-link tag="li" :to="{ name: 'MovieDetail', params: {id: movie.id} }" class="rank-item" v-for="movie in movies" :key="movie.id">
             <movie-list-item>
               <img v-lazy="movie.images.small" alt="" class="image" slot="thumbnail">
               <div class="title" slot="title">{{ movie.title }} / {{ movie.original_title }}</div>
@@ -20,7 +20,7 @@
                 <span class="average">{{ movie.rating.average }}</span> ({{ movie.collect_count }}人评价)
               </div>
             </movie-list-item>
-          </li>
+          </router-link>
         </ul>
         <div class="pagination">
           <a-pagination :current="current" :total="100" @change="changePage"/>
@@ -97,6 +97,7 @@
       .rank-item
         padding 15px 10px
         border-bottom 1px dashed #ddd
+        cursor pointer
         .title
           font-size 14px
           color #3576aa

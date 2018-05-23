@@ -63,27 +63,37 @@
       GoTop
     },
     created() {
-      let id = this.subjectId
-      let API_URL = `${API_MOVIE_SUBJECT}${id}?apikey=0b2bdeda43b5688921839c8ecb20399b`
-      getMoviesByUrl(API_URL).then(res => {
-        res = res.data
-        this.movie = res
-      }).catch(err => {
-        this.$message.error('获取电影详情信息出错')
-      })
-
-      let REVIEWS_URL = `${API_MOVIE_REVIEWS}${id}/reviews?apikey=0b2bdeda43b5688921839c8ecb20399b`
-      getMoviesByUrl(REVIEWS_URL).then(res => {
-        res = res.data
-        this.reviews = res.reviews
-        console.log('reviews', this.reviews)
-      }).catch(err => {
-        console.log('reviews', err)
-      })
+      this._getData()
+    },
+    activated() {
+      this._getData()
     },
     computed: {
       subjectId() {
         return this.$route.params.id 
+      }
+    },
+    methods: {
+      _getData() {
+        this.movie = {}
+        this.reviews = []
+        let id = this.subjectId
+        let API_URL = `${API_MOVIE_SUBJECT}${id}?apikey=0b2bdeda43b5688921839c8ecb20399b`
+        getMoviesByUrl(API_URL).then(res => {
+          res = res.data
+          this.movie = res
+        }).catch(err => {
+          this.$message.error('获取电影详情信息出错')
+        })
+
+        let REVIEWS_URL = `${API_MOVIE_REVIEWS}${id}/reviews?apikey=0b2bdeda43b5688921839c8ecb20399b`
+        getMoviesByUrl(REVIEWS_URL).then(res => {
+          res = res.data
+          this.reviews = res.reviews
+          console.log('reviews', this.reviews)
+        }).catch(err => {
+          console.log('reviews', err)
+        })
       }
     },
   }

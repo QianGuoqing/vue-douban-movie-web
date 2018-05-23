@@ -2,7 +2,7 @@
   <div class="movie-rank">
     <h2 class="title">{{ title }}</h2>
     <ul class="rank-list">
-      <li class="rank-item" v-for="(movie, index) in movies" :key="movie.subject.id">
+      <router-link tag="li" :to="{ name: 'MovieDetail', params: {id: movie.subject.id} }" class="rank-item" v-for="(movie, index) in movies" :key="movie.subject.id">
         <div class="desc">
           {{ index + 1 }} 
           <span class="movie-title">{{ movie.subject.title }}</span>
@@ -16,7 +16,7 @@
         <div class="more" v-else>
           {{ computeBox(movie.box) }}
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>

@@ -2,7 +2,7 @@
   <div class="top-movie">
     <h1 class="title">豆瓣电影TOP250</h1>
     <ul class="movie-list">
-      <li class="movie-item" v-for="movie in movies" :key="movie.id">
+      <router-link tag="li" :to="{ name: 'MovieDetail', params: {id: movie.id} }" class="movie-item" v-for="movie in movies" :key="movie.id">
         <a-tooltip placement="rightTop" >
           <template slot="title">
             <span>{{ movie.title }}</span>
@@ -15,7 +15,7 @@
             <!-- </div> -->
           </div>
         </a-tooltip>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
