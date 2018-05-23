@@ -17,6 +17,7 @@
           <movie-brief :movie="movie"></movie-brief>
           <movie-avatar-list :movie="movie"></movie-avatar-list>
           <movie-gallery :movie="movie"></movie-gallery>
+          <movie-short-comment :movie="movie"></movie-short-comment>
         </div>
       </a-col>
       <a-col :span="8">
@@ -33,6 +34,7 @@
   import MovieBrief from './components/movie-brief/MovieBrief.vue'
   import MovieAvatarList from './components/movie-avatar-list/MovieAvatarList.vue'
   import MovieGallery from './components/movie-gallery/MovieGallery.vue'
+  import MovieShortComment from './components/movie-short-comment/MovieShortComment.vue'
   import Loading from '../../components/loading/Loading.vue'
   import GoTop from '../../components/go-top/GoTop.vue'
   import { getMoviesByUrl } from '../../apis/request.js'
@@ -52,6 +54,7 @@
       MovieBrief,
       MovieAvatarList,
       MovieGallery,
+      MovieShortComment,
       Loading,
       GoTop
     },
