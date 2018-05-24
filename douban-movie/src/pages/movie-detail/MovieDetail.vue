@@ -90,9 +90,8 @@
         getMoviesByUrl(REVIEWS_URL).then(res => {
           res = res.data
           this.reviews = res.reviews
-          console.log('reviews', this.reviews)
         }).catch(err => {
-          console.log('reviews', err)
+          this.$message.error('获取评论信息出错')
         })
       }
     },

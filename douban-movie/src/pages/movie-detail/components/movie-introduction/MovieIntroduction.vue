@@ -11,15 +11,15 @@
         <div class="introduction">
           <div class="item">
             <span class="item-key">导演: </span>
-            <router-link :to="{ name: 'CelebrityPage', params: { id: director.id }}" class="item-value" v-for="director in movie.directors" :key="director.id">{{ director.name }}</router-link>
+            <router-link tag="span" :to="{ name: 'CelebrityPage', params: { id: director.id }}" class="item-value" v-for="director in movie.directors" :key="director.id">{{ director.name }}</router-link>
           </div>
           <div class="item">
             <span class="item-key">编剧: </span>
-            <span class="item-value" v-for="writer in movie.writers" :key="writer.id">{{ writer.name }}</span>
+            <router-link tag="span" :to="{ name: 'CelebrityPage', params: { id: writer.id }}" class="item-value" v-for="writer in movie.writers" :key="writer.id">{{ writer.name }}</router-link>
           </div>
           <div class="item">
             <span class="item-key">主演: </span>
-            <span class="item-value" v-for="cast in movie.casts" :key="cast.id">{{ cast.name }}</span>
+            <router-link tag="span" :to="{ name: 'CelebrityPage', params: { id: cast.id }}" class="item-value" v-for="cast in movie.casts" :key="cast.id">{{ cast.name }}</router-link>
           </div>
           <div class="info">
             <span class="info-key">类型: </span>

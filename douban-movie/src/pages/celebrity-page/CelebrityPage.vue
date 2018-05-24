@@ -57,9 +57,8 @@
         getMoviesByUrl(API_URL).then(res => {
           res = res.data
           this.celebrity = res
-          console.log('celebrity', this.celebrity)
         }).catch(err => {
-          console.log('celebrity', err)
+          this.$message.error('获取影人信息失败')
         })
       }
     },

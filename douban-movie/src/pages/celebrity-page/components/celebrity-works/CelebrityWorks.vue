@@ -2,7 +2,7 @@
   <div class="celebrity-works">
     <div class="title">最受好评的{{ celebrity.works.length }}部作品</div>
     <ul class="work-list">
-      <li class="work-item" v-for="work in celebrity.works" :key="work.subject.id">
+      <router-link tag="li" :to="{ name: 'MovieDetail', params: { id: work.subject.id } }" class="work-item" v-for="work in celebrity.works" :key="work.subject.id">
         <a-tooltip placement="rightTop" >
           <template slot="title">
             <span>{{ work.subject.title }}</span>
@@ -14,7 +14,7 @@
             <div class="date">{{ work.subject.year }}</div>
           </div>
         </a-tooltip>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
