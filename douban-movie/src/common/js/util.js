@@ -66,6 +66,9 @@ function concatLanguages(languages, character) {
   return languages.join(character)
 }
 
+function concatProfessions(professions, character) {
+  return professions.join(character)
+}
 
 const Util = {
   stringifyDirectors,
@@ -78,7 +81,8 @@ const Util = {
   concatPubdates,
   concatAlias,
   concatCountries,
-  concatLanguages
+  concatLanguages,
+  concatProfessions
 }
 
 export default Util

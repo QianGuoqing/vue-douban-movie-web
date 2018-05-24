@@ -95,8 +95,11 @@
       margin-top 10px
       .rating-bar
         display flex
+        justify-content flex-start
         font-size 12px
         color #a5a5a5
+        .index
+          flex 0 0 20px
         .bar
           height 10px
           background-color #fed69a 

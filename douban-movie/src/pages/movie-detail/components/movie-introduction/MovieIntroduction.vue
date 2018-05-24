@@ -11,7 +11,7 @@
         <div class="introduction">
           <div class="item">
             <span class="item-key">导演: </span>
-            <span class="item-value" v-for="director in movie.directors" :key="director.id">{{ director.name }}</span>
+            <router-link :to="{ name: 'CelebrityPage', params: { id: director.id }}" class="item-value" v-for="director in movie.directors" :key="director.id">{{ director.name }}</router-link>
           </div>
           <div class="item">
             <span class="item-key">编剧: </span>

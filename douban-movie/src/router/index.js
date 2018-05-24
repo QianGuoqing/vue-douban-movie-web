@@ -8,6 +8,7 @@ import RankPage from '../pages/rank-page/RankPage.vue'
 import CategroyPage from '../pages/category-page/CategoryPage.vue'
 import MovieDetail from '../pages/movie-detail/MovieDetail.vue'
 import Top250 from '../pages/top-250/Top250.vue'
+import CelebrityPage from '../pages/celebrity-page/CelebrityPage.vue'
 
 Vue.use(Router)
 
@@ -56,6 +57,11 @@ export default new Router({
       path: '/top250',
       name: 'Top250',
       component: Top250
+    },
+    {
+      path: '/celebrity/:id',
+      name: 'CelebrityPage',
+      component: CelebrityPage
     }
   ]
 })
