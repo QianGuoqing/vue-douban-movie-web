@@ -3,7 +3,7 @@
     <h1 class="title">
       {{ movie.title }}的短评
       <span class="info">(
-        <span class="info-item">全部{{ movie.comments_count }}条</span>)
+        <router-link tag="span" :to="{ name: 'CommentsPage', params: { id: movie.id } }" class="info-item">全部{{ movie.comments_count }}条</router-link>)
       </span>
     </h1>
     <div class="tips">热门 / 最新 / 好友</div>

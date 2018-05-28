@@ -67,6 +67,7 @@
             height 180px
             display block
           .work-title
+            width 130px
             font-size 12px
             color #333
             margin 5px 0 10px 0
