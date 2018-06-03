@@ -10,6 +10,7 @@ import MovieDetail from '../pages/movie-detail/MovieDetail.vue'
 import Top250 from '../pages/top-250/Top250.vue'
 import CelebrityPage from '../pages/celebrity-page/CelebrityPage.vue'
 import CommentsPage from '../pages/comments-page/CommentsPage.vue'
+import ReviewsPage from '../pages/reviews-page/ReviewsPage.vue'
 
 Vue.use(Router)
 
@@ -68,6 +69,11 @@ export default new Router({
       path: '/subject/comments/:id',
       name: 'CommentsPage',
       component: CommentsPage
+    },
+    {
+      path: '/subject/reviews/:id',
+      name: 'ReviewsPage',
+      component: ReviewsPage
     }
   ]
 })

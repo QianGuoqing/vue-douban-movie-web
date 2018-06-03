@@ -68,7 +68,6 @@
         getMoviesByUrl(API_URL).then(res => {
           res = res.data
           this.comments = res.comments
-          console.log(res);
           console.log('comments', this.comments)
         }).catch(err => {
           console.log(err)

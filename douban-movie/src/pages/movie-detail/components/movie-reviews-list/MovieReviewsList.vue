@@ -3,7 +3,7 @@
     <h1 class="title">
       {{ movie.title }}的影评
       <span class="info">(
-        <span class="info-item">全部{{ movie.reviews_count }}条</span>)
+        <router-link tag="span" :to="{ name: 'ReviewsPage', params: { id: movie.id } }" class="info-item">全部{{ movie.reviews_count }}条</router-link>)
       </span>
     </h1>
     <ul class="review-list">
