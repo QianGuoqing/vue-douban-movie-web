@@ -11,9 +11,9 @@
         <review-item :review="review"></review-item>
       </li>
     </ul>
-    <div class="more-reviews">
+    <router-link tag="div" :to="{ name: 'ReviewsPage', params: { id: movie.id } }" class="more-reviews">
       > 更多影评{{ movie.reviews_count }}篇
-    </div>
+    </router-link>
   </div>
 </template>
 
