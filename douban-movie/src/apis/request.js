@@ -33,4 +33,4 @@ export function getComingMovie() {
       reject(err)
     })
   })
-}
+} 

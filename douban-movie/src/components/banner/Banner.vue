@@ -6,7 +6,14 @@
         <div class="search">
           <router-link to="/" tag="div" class="title">豆瓣电影</router-link>
           <div class="search-input">
-            <a-input-search placeholder="搜索电影、电视剧、综艺、影人" style="width: 400px"></a-input-search>
+            <div class="form-group">
+              <input class="search-movie-input form-control" placeholder="搜索电影、电视剧、综艺、影人" style="width: 400px" @keyup.enter="searchMovie" v-model="movieText"/>
+            </div>
+            <ul class="search-list" v-show="moviesListTop5.length > 0">
+              <li @click="clearSearch(index)" v-for="(movie, index) in moviesListTop5" :key="movie.id">
+                <search-list-movie-item :movie="movie"></search-list-movie-item>
+              </li>
+            </ul>
           </div>
         </div>
         <ul class="navigation">
@@ -22,8 +29,51 @@
 </template>
 
 <script>
+  import { getMoviesByUrl } from '../../apis/request.js'
+  import { API_SEARCH } from '../../apis/urls.js'
+  import SearchListMovieItem from './components/SearchListMovieItem.vue'
   export default {
-    name: 'Banner'
+    name: 'Banner',
+    components: {
+      SearchListMovieItem
+    },
+    data() {
+      return {
+        movieText: '',
+        moviesList: [],
+        moviesListTop5: []
+      }
+    },
+    methods: {
+      searchMovie() {
+        this._getSearchMovie(this.movieText)
+      },
+      clearSearch(index) {
+        //name: 'MovieDetail', params: {id: movie.id}
+        this.$router.push({
+          name: 'MovieDetail',
+          params: {
+            id: this.moviesListTop5[index].id
+          }
+        })
+        this.$router.go(0)
+        this.movieText = ''
+        this.moviesListTop5 = []
+      },
+      _getSearchMovie(movieText) {
+        let MOVIE_URL = `${API_SEARCH}${movieText}&apikey=0b2bdeda43b5688921839c8ecb20399b`
+        getMoviesByUrl(MOVIE_URL).then(res => {
+          res = res.data
+          this.moviesList = res.subjects
+          let tempMovies = [...this.moviesList]
+          this.moviesListTop5 = tempMovies.slice(0, 5)
+          console.log('search movie list', this.moviesList)
+          console.log('search 5 movie', this.moviesListTop5)
+        }).catch(err => {
+          console.log('search movie list', err)
+        })
+      }
+    },
   }
 </script>
 
@@ -33,6 +83,7 @@
     .search
       display flex;
       padding 15px 0
+      align-items center
       border-bottom 1px solid #ddd
       .title
         font-size 30px
@@ -46,6 +97,18 @@
       .search-input
         align-self center
         margin-left 20px
+        position relative
+        .search-movie-input
+          position relative
+          top 9px
+        .search-list
+          position absolute
+          background-color #fff
+          width 400px;
+          z-index 999
+          border 1px solid #ccc
+          &:last-child
+            border-bottom none
     .navigation
       display flex
       font-size 14px
