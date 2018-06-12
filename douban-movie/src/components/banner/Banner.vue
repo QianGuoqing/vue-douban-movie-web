@@ -8,9 +8,10 @@
           <div class="search-input">
             <div class="form-group">
               <input class="search-movie-input form-control" placeholder="搜索电影、电视剧、综艺、影人" style="width: 400px" @keyup.enter="searchMovie" v-model="movieText"/>
+              <button v-show="moviesList.length > 0" class="search-button btn btn-danger" @click="cancelSearch" type="danger">取消搜索</button>
             </div>
-            <ul class="search-list" v-show="moviesListTop5.length > 0">
-              <li @click="clearSearch(index)" v-for="(movie, index) in moviesListTop5" :key="movie.id">
+            <ul class="search-list" v-show="moviesList.length > 0">
+              <li @click="clearSearch(index)" v-for="(movie, index) in moviesList" :key="movie.id">
                 <search-list-movie-item :movie="movie"></search-list-movie-item>
               </li>
             </ul>
@@ -32,6 +33,7 @@
   import { getMoviesByUrl } from '../../apis/request.js'
   import { API_SEARCH } from '../../apis/urls.js'
   import SearchListMovieItem from './components/SearchListMovieItem.vue'
+  import { mapState } from 'vuex'
   export default {
     name: 'Banner',
     components: {
@@ -47,28 +49,31 @@
     methods: {
       searchMovie() {
         this._getSearchMovie(this.movieText)
+        this.$store.commit('changeSearchMovieText', { 
+          movie: this.movieText 
+        })
+      },
+      cancelSearch() {
+        this.movieText = ''
+        this.moviesList = []
       },
       clearSearch(index) {
-        //name: 'MovieDetail', params: {id: movie.id}
         this.$router.push({
           name: 'MovieDetail',
           params: {
-            id: this.moviesListTop5[index].id
+            id: this.moviesList[index].id
           }
         })
         this.$router.go(0)
         this.movieText = ''
-        this.moviesListTop5 = []
+        this.moviesList = []
       },
       _getSearchMovie(movieText) {
         let MOVIE_URL = `${API_SEARCH}${movieText}&apikey=0b2bdeda43b5688921839c8ecb20399b`
         getMoviesByUrl(MOVIE_URL).then(res => {
           res = res.data
           this.moviesList = res.subjects
-          let tempMovies = [...this.moviesList]
-          this.moviesListTop5 = tempMovies.slice(0, 5)
-          console.log('search movie list', this.moviesList)
-          console.log('search 5 movie', this.moviesListTop5)
+          this.moviesList = res.subjects
         }).catch(err => {
           console.log('search movie list', err)
         })
@@ -101,12 +106,18 @@
         .search-movie-input
           position relative
           top 9px
+        .search-button  
+          position absolute 
+          left 420px
+          top 10px
         .search-list
           position absolute
           background-color #fff
           width 400px;
           z-index 999
           border 1px solid #ccc
+          max-height 500px
+          overflow auto
           &:last-child
             border-bottom none
     .navigation

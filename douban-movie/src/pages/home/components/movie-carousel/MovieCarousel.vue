@@ -129,6 +129,7 @@
       padding-bottom 10px
       .banner-info
         display flex
+        align-items center
         .title
           font-size 20px
         .banner-item

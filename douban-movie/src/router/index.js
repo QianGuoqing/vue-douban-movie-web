@@ -11,6 +11,7 @@ import Top250 from '../pages/top-250/Top250.vue'
 import CelebrityPage from '../pages/celebrity-page/CelebrityPage.vue'
 import CommentsPage from '../pages/comments-page/CommentsPage.vue'
 import ReviewsPage from '../pages/reviews-page/ReviewsPage.vue'
+import SearchPage from '../pages/search-page/SearchPage.vue'
 
 Vue.use(Router)
 
@@ -74,6 +75,11 @@ export default new Router({
       path: '/subject/reviews/:id',
       name: 'ReviewsPage',
       component: ReviewsPage
+    },
+    {
+      path: '/search-movie',
+      name: 'SearchPage',
+      component: SearchPage
     }
   ]
 })

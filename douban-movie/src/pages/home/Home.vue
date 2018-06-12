@@ -72,5 +72,5 @@
 <style lang="stylus" scoped>
   .home
     .content
-      margin-top 30px
+      margin-top 20px
 </style>

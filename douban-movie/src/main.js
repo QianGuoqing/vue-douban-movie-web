@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import VueAntd from 'vue-antd-ui'
 import VueLazyload from 'vue-lazyload'
 import './assets/css/reset.css'
@@ -22,6 +23,7 @@ Vue.use(VueLazyload, {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
