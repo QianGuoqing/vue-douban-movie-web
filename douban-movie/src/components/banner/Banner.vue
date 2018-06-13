@@ -23,6 +23,9 @@
           <router-link to="/category" tag="li" class="navigation-item">分类</router-link>
           <router-link to="/top250" tag="li" class="navigation-item">Top250</router-link>
           <router-link to="/user-center" tag="li" class="navigation-item">个人中心</router-link>
+          <li class="navigation-item">
+            <a href="https://github.com/QianGuoqing/vue-douban-movie-web" target="_blank">Github源码地址</a>
+          </li>
         </ul>
       </a-col>
       <a-col :span="2"></a-col>
@@ -133,6 +136,7 @@
       font-size 14px
       color #2a8ccb
       padding 10px 0
+      align-items center
       .navigation-item
         line-height 20px
         margin-right 10px
