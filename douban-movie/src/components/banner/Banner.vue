@@ -49,6 +49,10 @@
     },
     methods: {
       searchMovie() {
+        if (this.movieText.length === 0) {
+          this.$message.error('搜索内容不能为空')
+          return
+        }
         this._getSearchMovie(this.movieText)
         this.$store.commit('changeSearchMovieText', { 
           movie: this.movieText 
@@ -74,9 +78,12 @@
         getMoviesByUrl(MOVIE_URL).then(res => {
           res = res.data
           this.moviesList = res.subjects
-          this.moviesList = res.subjects
+          if (this.moviesList.length === 0) {
+            this.$message.error('暂无搜索结果')
+            this.movieText = ''
+          }
         }).catch(err => {
-          console.log('search movie list', err)
+          this.$message.error('获取搜索信息失败')
         })
       }
     },

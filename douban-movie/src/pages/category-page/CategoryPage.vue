@@ -3,7 +3,7 @@
     <a-row>
       <a-col :span="2"></a-col>
       <a-col :span="16">
-        <h1 class="title">选影视</h1>
+        <h1 class="category-title">选影视</h1>
         <ul class="tags">
           <li @click="selectTag(index)" class="tag" :class="{ active: index === activeIndex }" v-for="(category, index) in categories" :key="category">{{ category }}</li>
         </ul>
@@ -82,9 +82,8 @@
           res = res.data
           // this.movies = res.subjects
           this.movies.push(...res.subjects)
-          console.log('category page', this.movies)
         }).catch(err => {
-          console.log('category page', err)
+          this.$message.error('获取分类数据失败')
         })
       },
       stringifyCa(casts) {
@@ -100,7 +99,7 @@
     font-size 12px
 
   .category-page
-    .title
+    .category-title
       font-size 24px
       font-weight 700
       color rgba(0, 0, 0, 0.65)

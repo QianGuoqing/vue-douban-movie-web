@@ -111,7 +111,6 @@
           tempArr.push(this.hotMovies[i])
         }
         this.carouselItem = tempArr
-        console.log('item', this.carouselItem);
       }
     },
   }

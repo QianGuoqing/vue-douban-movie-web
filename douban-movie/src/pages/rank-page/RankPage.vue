@@ -70,7 +70,6 @@
       getMoviesByUrl(API_TOP_250).then(res => {
         res = res.data
         this.topMovies = res.subjects
-        console.log('top250', this.topMovies)
       }).catch(err => {
         console.log('top250', err)
       })

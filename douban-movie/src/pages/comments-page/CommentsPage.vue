@@ -72,9 +72,8 @@
         getMoviesByUrl(API_URL).then(res => {
           res = res.data
           this.comments = res.comments
-          console.log('comments', this.comments)
         }).catch(err => {
-          console.log(err)
+          this.$message.error('获取短评数据失败')
         })
       },
       _getMovieData(id) {

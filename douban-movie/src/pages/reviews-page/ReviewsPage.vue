@@ -62,18 +62,15 @@
       pageChange(current) {
         this.reviews = []
         this.start = (this.current - 1) * 20
-        console.log('page change', this.start)
         this._getReviewsData(this.start, this.count)
-        console.log(this.current);
       },
       _getReviewsData(id) {
         let REVIEWS_URL = `${API_MOVIE_REVIEWS}${this.id}/reviews?apikey=0b2bdeda43b5688921839c8ecb20399b&start=${this.start}&count=${this.count}`
         getMoviesByUrl(REVIEWS_URL).then(res => {
           res = res.data
           this.reviews = res.reviews
-          console.log('reviews', this.reviews)
         }).catch(err => {
-          console.log('reviews', err)
+          thits.$message.error('获取长评信息失败')
         })
       },
       _getMovieData(id) {
@@ -82,10 +79,8 @@
         getMoviesByUrl(API_URL).then(res => {
           res = res.data
           this.movie = res
-          console.log(this.movie)
           this.reviewsCount = this.movie.reviews_count
           this.pageNumbers = Math.ceil(this.reviewsCount / 20) * 10
-          console.log('page numbers', this.pageNumbers)
         }).catch(err => {
           this.$message.error('获取电影详情信息出错')
         })

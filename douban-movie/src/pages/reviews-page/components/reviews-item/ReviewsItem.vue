@@ -160,9 +160,8 @@
             font-weight 600
       .close
         font-size 13px
-        color #aaa
         cursor pointer
         transition all .3s
         &:hover
-          color #333
+          color #000
 </style>

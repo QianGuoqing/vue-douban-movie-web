@@ -70,7 +70,6 @@
       getMoviesByUrl('/api/movie/coming_soon?count=100').then(res => {
         res = res.data
         this.movies = res.subjects
-        console.log('coming movies', this.movies)
       }).catch(err => {
         this.$message.error('网络错误')
       })

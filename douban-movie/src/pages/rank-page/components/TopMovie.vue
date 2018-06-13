@@ -8,11 +8,9 @@
             <span>{{ movie.title }}</span>
           </template>
           <div class="movie-card">
-            <!-- <div> -->
-              <img class="image" v-lazy="movie.images.small" alt="">
-              <div class="title">{{ movie.title }}</div>
-              <div class="rate">{{ movie.rating.average }}</div>
-            <!-- </div> -->
+            <img class="image" v-lazy="movie.images.small" alt="">
+            <div class="title">{{ movie.title }}</div>
+            <div class="rate">{{ movie.rating.average }}</div>
           </div>
         </a-tooltip>
       </router-link>

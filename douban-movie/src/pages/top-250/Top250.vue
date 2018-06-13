@@ -22,7 +22,7 @@
             </movie-list-item>
           </router-link>
         </ul>
-        <div class="pagination">
+        <div v-if="movies.length" class="pagination">
           <a-pagination :current="current" :total="100" @change="changePage"/>
         </div>
       </a-col>

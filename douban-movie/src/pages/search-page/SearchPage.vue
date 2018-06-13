@@ -50,10 +50,8 @@
         getMoviesByUrl(MOVIE_URL).then(res => {
           res = res.data
           this.searchMovieList = res.subjects
-          console.log('search page res', res)
-          console.log('search page', this.searchMovieList)
         }).catch(err => {
-          console.log('search page', err)
+          this.$message.error('获取搜索信息失败')
         })
       },
       stringifyCa(casts) {
