@@ -61,7 +61,9 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import {
+    mapState
+  } from 'vuex'
   export default {
     name: 'UserCenter',
     data() {
@@ -85,7 +87,10 @@
     },
     methods: {
       doLogin() {
-        let { username, password } = this.loginUser
+        let {
+          username,
+          password
+        } = this.loginUser
         if (username.length === 0 || password.length === 0) {
           this.$message.error('输入内容不能为空')
           return
@@ -99,7 +104,7 @@
         } else {
           this.$message.error('用户名或者密码错误')
           this.loginUser.username = ''
-          this.loginUser.password = '' 
+          this.loginUser.password = ''
         }
       },
       doLoginCancel() {
@@ -108,7 +113,11 @@
         this.$message.error('取消登陆')
       },
       doRegister() {
-        let { username, password, confirmPassword } = this.registerUser
+        let {
+          username,
+          password,
+          confirmPassword
+        } = this.registerUser
         if (username.length === 0 || password.length === 0 || confirmPassword.length === 0) {
           this.$message.error('注册失败-输入内容不能为空')
           return
@@ -139,7 +148,7 @@
       },
       callback(key) {
   
-      },
+      }
     },
   }
 </script>
