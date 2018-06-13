@@ -4,12 +4,29 @@
     <a href="#" class="header-link">读书</a>
     <a href="#" class="header-link">电影</a>
     <a href="#" class="header-link">音乐</a>
+    <span v-if="!isLogin" @click="toLogin" class="header-link login">未登录</span>
+    <span v-else>
+      <span class="header-link login">{{ user.username }}</span>
+      <span class="header-link logout" @click="logout">[注销]</span>
+    </span>
   </div>
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default {
-    name: 'Header'
+    name: 'Header',
+    methods: {
+      toLogin() {
+        this.$router.push('/user-center')
+      },
+      logout() {
+        this.$store.commit('changeLoginStatus', false)
+      }
+    },
+    computed: {
+      ...mapState(['isLogin', 'user'])
+    },
   }
 </script>
 
@@ -18,6 +35,7 @@
     width 100%
     height 25px
     background-color #545652
+    position relative
     .header-link
       display inline-block
       font-size 12px
@@ -27,4 +45,12 @@
       transition all .3s;
       &:hover
         color rgba(255, 255, 255, 0.8)
+    .login
+      cursor pointer
+      position absolute
+      right 60px
+    .logout
+      cursor pointer
+      position absolute
+      right 20px
 </style>

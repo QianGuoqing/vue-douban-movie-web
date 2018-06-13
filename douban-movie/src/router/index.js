@@ -12,6 +12,7 @@ import CelebrityPage from '../pages/celebrity-page/CelebrityPage.vue'
 import CommentsPage from '../pages/comments-page/CommentsPage.vue'
 import ReviewsPage from '../pages/reviews-page/ReviewsPage.vue'
 import SearchPage from '../pages/search-page/SearchPage.vue'
+import UserCenter from '../pages/user-center/UserCenter.vue'
 
 Vue.use(Router)
 
@@ -80,6 +81,11 @@ export default new Router({
       path: '/search-movie',
       name: 'SearchPage',
       component: SearchPage
+    },
+    {
+      path: '/user-center',
+      name: 'UserCenter',
+      component: UserCenter
     }
   ]
 })
