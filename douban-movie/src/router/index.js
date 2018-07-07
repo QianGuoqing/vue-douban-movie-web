@@ -1,20 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from '../pages/home/Home.vue'
-import MovieInTheater from '../pages/in-theater/MovieInTheater.vue'
-import ComingMovies from '../pages/coming-movies/ComingMovies.vue'
-import MoviesInfo from '../pages/movies-info/MoviesInfo.vue'
-import RankPage from '../pages/rank-page/RankPage.vue'
-import CategroyPage from '../pages/category-page/CategoryPage.vue'
-import MovieDetail from '../pages/movie-detail/MovieDetail.vue'
-import Top250 from '../pages/top-250/Top250.vue'
-import CelebrityPage from '../pages/celebrity-page/CelebrityPage.vue'
-import CommentsPage from '../pages/comments-page/CommentsPage.vue'
-import ReviewsPage from '../pages/reviews-page/ReviewsPage.vue'
-import SearchPage from '../pages/search-page/SearchPage.vue'
-import UserCenter from '../pages/user-center/UserCenter.vue'
-
 Vue.use(Router)
 
 export default new Router({
@@ -26,67 +12,67 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: () => import('../pages/home/Home.vue')
     },
     {
       path: '/theater',
       name: 'MovieInTheater',
-      component: MovieInTheater
+      component: () => import('../pages/in-theater/MovieInTheater.vue')
     },
     {
       path: '/coming',
       name: 'ComingMovies',
-      component: ComingMovies
+      component: () => import('../pages/coming-movies/ComingMovies.vue')
     },
     {
       path: '/movies-info',
       name: 'MoviesInfo',
-      component: MoviesInfo
+      component: () => import('../pages/movies-info/MoviesInfo.vue')
     },
     {
       path: '/rank',
       name: 'RankPage',
-      component: RankPage
+      component: () => import('../pages/rank-page/RankPage.vue')
     },
     {
       path: '/category',
       name: 'CategoryPage',
-      component: CategroyPage
+      component: () => import('../pages/category-page/CategoryPage.vue')
     },
     {
       path: '/subject/:id',
       name: 'MovieDetail',
-      component: MovieDetail
+      component: () => import('../pages/movie-detail/MovieDetail.vue')
     },
     {
       path: '/top250',
       name: 'Top250',
-      component: Top250
+      component: () => import('../pages/top-250/Top250.vue')
     },
     {
       path: '/celebrity/:id',
       name: 'CelebrityPage',
-      component: CelebrityPage
+      component: () => import('../pages/celebrity-page/CelebrityPage.vue')
     },
     {
       path: '/subject/comments/:id',
       name: 'CommentsPage',
-      component: CommentsPage
+      component: () => import('../pages/comments-page/CommentsPage.vue')
     },
     {
       path: '/subject/reviews/:id',
       name: 'ReviewsPage',
-      component: ReviewsPage
+      component: () => import('../pages/reviews-page/ReviewsPage.vue')
     },
     {
       path: '/search-movie',
       name: 'SearchPage',
-      component: SearchPage
+      component: () => import('../pages/search-page/SearchPage.vue')
     },
     {
       path: '/user-center',
       name: 'UserCenter',
-      component: UserCenter
+      component: () => import('../pages/user-center/UserCenter.vue')
     }
   ]
 })
