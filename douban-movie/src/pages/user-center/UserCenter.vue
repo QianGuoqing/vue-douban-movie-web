@@ -134,6 +134,11 @@
           username: username,
           password: password
         })
+        let userDetail = {
+          username: this.registerUser.username,
+          password: this.registerUser.password
+        }
+        localStorage.setItem('user_detail', userDetail)
         this.$message.success('注册成功')
         this.registerUser.username = ''
         this.registerUser.password = ''

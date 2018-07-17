@@ -1,9 +1,8 @@
 <template>
   <div class="header">
-    <a href="#" class="header-link">豆瓣</a>
-    <a href="#" class="header-link">读书</a>
-    <a href="#" class="header-link">电影</a>
-    <a href="#" class="header-link">音乐</a>
+    <router-link to="/" class="header-link">电影</router-link>
+    <a href="https://book.douban.com/" target="_blank" class="header-link">读书</a>
+    <a href="https://music.douban.com/" target="_blank" class="header-link">音乐</a>
     <span v-if="!isLogin" @click="toLogin" class="header-link login">未登录</span>
     <span v-else>
       <span class="header-link login">{{ user.username }}</span>
@@ -21,7 +20,17 @@
         this.$router.push('/user-center')
       },
       logout() {
-        this.$store.commit('changeLoginStatus', false)
+        var that = this
+        this.$confirm({
+          title: '注销信息',
+          content: '确定要退出登录吗？',
+          onOk() {
+            that.$store.commit('changeLoginStatus', false)
+          },
+          onCancel() {
+          },
+        });
+
       }
     },
     computed: {
