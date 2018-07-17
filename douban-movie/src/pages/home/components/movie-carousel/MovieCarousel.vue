@@ -26,7 +26,7 @@
             {{ item.rating.average }}分
           </div>
           <div class="rate" v-else>暂无评分</div>
-          <a-button type="primary" class="choose-button" size="small">选座购票</a-button>
+          <a-button type="primary" @click.prevent.stop="toPurchaseTicket(item.title)" class="choose-button" size="small">选座购票</a-button>
         </div>
       </router-link>
     </div>
@@ -43,7 +43,7 @@
             {{ item.rating.average }}分
           </div>
           <div class="rate" v-else>暂无评分</div>
-          <a-button type="primary" size="small" class="choose-button">选座购票</a-button>
+          <a-button type="primary" @click.prevent.stop="toPurchaseTicket(item.title)" size="small" class="choose-button">选座购票</a-button>
         </div>
       </router-link>
     </div>
@@ -111,6 +111,9 @@
           tempArr.push(this.hotMovies[i])
         }
         this.carouselItem = tempArr
+      },
+      toPurchaseTicket(title) {
+        window.open(`https://maoyan.com/query?kw=${title}`,'_blank')
       }
     },
   }

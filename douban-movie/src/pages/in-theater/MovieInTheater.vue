@@ -27,7 +27,7 @@
                     {{ movie.rating.average }}分
                   </div>
                   <div class="rate" v-else>暂无评分</div>
-                  <a-button type="primary" size="small" class="choose-button">选座购票</a-button>
+                  <a-button type="primary" @click.prevent.stop="toPurchaseTicket(movie.title)" size="small" class="choose-button">选座购票</a-button>
                 </div>
               </router-link>
             </div>
@@ -66,6 +66,10 @@
       },
       stringifyGe(genres) {
         return Util.stringifyGenres(genres)
+      },
+      toPurchaseTicket(title) {
+        // window.location.href = `https://maoyan.com/query?kw=${title}`
+        window.open(`https://maoyan.com/query?kw=${title}`,'_blank')
       }
     },
     components: {
