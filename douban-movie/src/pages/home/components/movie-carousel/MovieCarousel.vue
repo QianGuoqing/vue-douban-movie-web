@@ -170,22 +170,30 @@
       .item
         align-items stretch
         border 1px solid #ddd
-        padding 5px
+        // padding 5px
         transition all .3s
         cursor pointer
         position relative
         display flex
         flex-direction column
         justify-content space-between
+        overflow hidden
         // padding-bottom 100px
         &:hover
           box-shadow 0 0 5px #ccc
-          transform translateY(-5px)
+          // transform translateY(-5px)
         .image
           min-width 100%
           max-width 100%
           min-height 185px
+          padding 5px
+          transition all .5s
+          &:hover
+            transform scale(1.2)
+            opacity 0.8
         .content
+          z-index 10
+          background-color #fff
           .title
             margin-top 10px
             width 100%
