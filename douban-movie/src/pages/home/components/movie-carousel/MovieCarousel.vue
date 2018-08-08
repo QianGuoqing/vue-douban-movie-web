@@ -182,7 +182,9 @@
           box-shadow 0 0 5px #ccc
           transform translateY(-5px)
         .image
-          width 100%
+          min-width 100%
+          max-width 100%
+          min-height 185px
         .content
           .title
             margin-top 10px
