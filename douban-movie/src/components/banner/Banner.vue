@@ -11,7 +11,7 @@
               <button v-show="moviesList.length > 0" class="search-button btn btn-danger" @click="cancelSearch" type="danger">取消搜索</button>
             </div>
             <ul class="search-list" v-show="moviesList.length > 0">
-              <li @click="clearSearch(index)" v-for="(movie, index) in moviesList" :key="movie.id">
+              <li @click.prevent.stop="clearSearch(index)" v-for="(movie, index) in moviesList" :key="movie.id">
                 <search-list-movie-item :movie="movie"></search-list-movie-item>
               </li>
             </ul>
@@ -72,9 +72,9 @@
             id: this.moviesList[index].id
           }
         })
-        this.$router.go(0)
         this.movieText = ''
         this.moviesList = []
+        this.$router.go(0)
       },
       _getSearchMovie(movieText) {
         let MOVIE_URL = `${API_SEARCH}${movieText}&apikey=0b2bdeda43b5688921839c8ecb20399b`
